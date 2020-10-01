@@ -1,0 +1,109 @@
+{
+	"name": "coderoad",
+	"version": "0.14.2",
+	"description": "Play interactive coding tutorials in your editor",
+	"keywords": [
+		"tutorial",
+		"learn",
+		"education",
+		"teach",
+		"training"
+	],
+	"homepage": "https://github.com/coderoad/coderoad-vscode",
+	"bugs": {
+		"url": "https://github.com/coderoad/coderoad-vscode/issues",
+		"email": "coderoadapp@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/coderoad/coderoad-vscode.git"
+	},
+	"license": "SEE LICENSE IN LICENSE.md",
+	"author": {
+		"name": "Shawn McKay <shawn.j.mckay@gmail.com>"
+	},
+	"main": "./build/extension.js",
+	"scripts": {
+		"build": "./scripts/build.sh",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"install-all": "yarn && yarn --cwd web-app",
+		"lint": "eslint web-app/src/**/*.ts src/**/*.ts",
+		"package": "./scripts/package.sh",
+		"storybook": "yarn --cwd web-app storybook",
+		"test": "jest",
+		"watch": "tsc -watch -p ./"
+	},
+	"dependencies": {
+		"@types/events": "^3.0.0",
+		"chokidar": "^3.4.2",
+		"dotenv": "^8.2.0",
+		"eslint": "^7.8.1",
+		"git-url-parse": "^11.2.0",
+		"jest": "^26.4.2",
+		"jsdom": "^16.4.0",
+		"node-fetch": "^2.6.1",
+		"semver": "^7.3.2",
+		"ts-jest": "^26.3.0",
+		"typescript": "^4.0.2",
+		"vscode-extension-telemetry": "^0.1.6"
+	},
+	"devDependencies": {
+		"@types/assert": "^1.5.2",
+		"@types/jest": "^26.0.13",
+		"@types/jsdom": "^16.2.4",
+		"@types/node": "^14.6.4",
+		"@types/node-fetch": "^2.5.7",
+		"@types/semver": "^7.3.3",
+		"@typescript-eslint/eslint-plugin": "^4.1.0",
+		"@typescript-eslint/parser": "^4.1.0",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-config-react-app": "^5.2.1",
+		"eslint-plugin-flowtype": "^5.2.0",
+		"eslint-plugin-import": "^2.22.0",
+		"eslint-plugin-jsx-a11y": "^6.3.1",
+		"eslint-plugin-prettier": "^3.1.4",
+		"eslint-plugin-react": "^7.20.6",
+		"eslint-plugin-react-hooks": "^4.1.0",
+		"prettier": "^2.1.1",
+		"vscode": "^1.1.37",
+		"vscode-test": "^1.4.0"
+	},
+	"engines": {
+		"vscode": "^1.39.2"
+	},
+	"activationEvents": [
+		"onCommand:coderoad.start"
+	],
+	"categories": [
+		"Other"
+	],
+	"contributes": {
+		"commands": [
+			{
+				"command": "coderoad.start",
+				"title": "Start",
+				"category": "CodeRoad"
+			}
+		],
+		"keybindings": [
+			{
+				"key": "ctrl+enter",
+				"mac": "ctrl+enter",
+				"command": "coderoad.enter"
+			}
+		]
+	},
+	"displayName": "CodeRoad",
+	"galleryBanner": {
+		"color": "#272728",
+		"theme": "dark"
+	},
+	"preview": true,
+	"publisher": "CodeRoad",
+	"icon": "coderoad_icon.png",
+	"__metadata": {
+		"id": "eb6f1350-8534-4621-a996-b4dbb2c19366",
+		"publisherDisplayName": "CodeRoad",
+		"publisherId": "eda14aba-41f5-4792-b5c1-c247b9305d83"
+	}
+}
